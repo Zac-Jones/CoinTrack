@@ -31,8 +31,8 @@ struct HomeView: View {
                 
                 ScrollView(.horizontal) {
                     HStack(spacing: 16) {
-                        //loops through the top 10 coins
-                        ForEach(filteredCoins.prefix(10), id: \.id) { coin in
+                        //loops through the top 20 coins
+                        ForEach(filteredCoins.prefix(20), id: \.id) { coin in
                            
                             VStack(alignment: .leading) {
                                 //image
@@ -63,7 +63,7 @@ struct HomeView: View {
                                 
                                 Text("\(coin.priceChangePercentage24h)") //not sure what the  percentage we need is
                                     .font(.title2)
-                                    .foregroundColor(.green)
+                                    .foregroundColor(coin.marketCapChangePercentage24h < 0 ? .red : .green) //if negative then red, if positive then green
                             }
                             .frame(width: 140, height: 140)
                             .overlay(
