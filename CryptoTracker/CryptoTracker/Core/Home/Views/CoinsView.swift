@@ -39,6 +39,8 @@ struct CoinsView: View {
             return filteredCoins.sorted(by: { $0.currentPrice > $1.currentPrice })
         }
     }
+    
+    
 
     var body: some View {
         NavigationView {

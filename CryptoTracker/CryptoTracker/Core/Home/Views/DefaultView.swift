@@ -10,16 +10,29 @@ import SwiftUI
 struct DefaultView: View {
     @State private var currentPage = "Dashboard"
     @State private var coins: [Coin] = []
-
+    
     var body: some View {
+        
         NavigationView {
+    
             TabView(selection: $currentPage) {
-                HomeView()
+                HomeView(coins: coins)
                     .tabItem {
                         Image(systemName: "chart.bar.xaxis")
                         Text("Dash")
                     }
                     .tag("Dashboard")
+                    .onAppear {
+                        Task {
+                            do {
+                                self.coins = try await CoinService.shared.fetchCoinDataAsync()
+                                
+                            } catch {
+                                print("Error fetching data: \(error)")
+                            }
+                        }
+                    }
+                    
                 
                 FavouritesView()
                     .tabItem {
@@ -53,6 +66,7 @@ struct DefaultView: View {
                     NavigationLink(destination: ProfileView()) {
                         Image(systemName: "person")
                     }
+                    
                 }
             )
         }
