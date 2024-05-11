@@ -25,22 +25,32 @@ struct SingleCoinView: View {
         VStack {
             Text(mutableCoin.name)
                 .font(.title)
+                .bold()
             Text("Symbol: \(mutableCoin.symbol)")
             Text("Price: $\(String(format: "%.2f", mutableCoin.currentPrice))")
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: backButton, trailing: favouriteButton)
             
-            
+             
             let priceHistory = mutableCoin.sparklineIn7d?.price
-                        LineChartView(data: priceHistory ?? [],
-                                      title: "Price Trend",
-                                      legend: "Price in USD",
-                                      style: Styles.lineChartStyleOne)
-                        
-                    }
-        .onAppear {
-            mutableCoin.isFavourited = UserDefaults.standard.bool(forKey: "fav_\(mutableCoin.id)")
-           
+            LineChartView(data: priceHistory ?? [],
+                          title: "Price Trend",
+                          legend: "Price in USD",
+                          style: Styles.lineChartStyleOne,
+                          form: ChartForm.extraLarge, //size of form
+                          rateValue: Int(mutableCoin.marketCapChangePercentage24h)//percentage value to state if its going up or down
+                          
+            )
+            .padding(10)
+            
+            
+            .onAppear {
+                mutableCoin.isFavourited = UserDefaults.standard.bool(forKey: "fav_\(mutableCoin.id)")
+                
+            }
+            
+            Spacer()
+           // Spacer()
         }
     }
     
