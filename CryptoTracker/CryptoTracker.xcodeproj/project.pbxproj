@@ -21,30 +21,7 @@
 		1142E0762BEC98E100E724F6 /* SingleCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0752BEC98E100E724F6 /* SingleCoinView.swift */; };
 		1142E0782BEC9BE500E724F6 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0772BEC9BE500E724F6 /* CoinRowView.swift */; };
 		1142E07A2BEC9C4700E724F6 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0792BEC9C4700E724F6 /* SearchBar.swift */; };
-		75C7453E2BECAE430095F215 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AA442BEB5CBE000CD981 /* HomeView.swift */; };
-		75C7453F2BECAE430095F215 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AA442BEB5CBE000CD981 /* HomeView.swift */; };
-		75C745402BECAE680095F215 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0632BEC7AE800E724F6 /* DefaultView.swift */; };
-		75C745412BECAE690095F215 /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0632BEC7AE800E724F6 /* DefaultView.swift */; };
-		75C745422BECAE6B0095F215 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E06A2BEC7B8400E724F6 /* CoinsView.swift */; };
-		75C745432BECAE6C0095F215 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E06A2BEC7B8400E724F6 /* CoinsView.swift */; };
-		75C745442BECAE6E0095F215 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0672BEC7B6700E724F6 /* FavouritesView.swift */; };
-		75C745452BECAE6E0095F215 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0672BEC7B6700E724F6 /* FavouritesView.swift */; };
-		75C745462BECAE710095F215 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0652BEC7B2100E724F6 /* SettingsView.swift */; };
-		75C745472BECAE710095F215 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0652BEC7B2100E724F6 /* SettingsView.swift */; };
-		75C745482BECAE730095F215 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E06C2BEC7B9000E724F6 /* ProfileView.swift */; };
-		75C745492BECAE730095F215 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E06C2BEC7B9000E724F6 /* ProfileView.swift */; };
-		75C7454A2BECAE750095F215 /* SingleCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0752BEC98E100E724F6 /* SingleCoinView.swift */; };
-		75C7454B2BECAE760095F215 /* SingleCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0752BEC98E100E724F6 /* SingleCoinView.swift */; };
-		75C7454C2BECAE790095F215 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0772BEC9BE500E724F6 /* CoinRowView.swift */; };
-		75C7454D2BECAE7A0095F215 /* CoinRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0772BEC9BE500E724F6 /* CoinRowView.swift */; };
-		75C7454E2BECAE7C0095F215 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0792BEC9C4700E724F6 /* SearchBar.swift */; };
-		75C7454F2BECAE7D0095F215 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0792BEC9C4700E724F6 /* SearchBar.swift */; };
-		75C745522BECAEB60095F215 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0722BEC88EB00E724F6 /* Coin.swift */; };
-		75C745532BECAEB60095F215 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0722BEC88EB00E724F6 /* Coin.swift */; };
-		75C745542BECAEB90095F215 /* CryptoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AA422BEB5CBE000CD981 /* CryptoTrackerApp.swift */; };
-		75C745552BECAEB90095F215 /* CryptoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1132AA422BEB5CBE000CD981 /* CryptoTrackerApp.swift */; };
-		75C745562BECAEBD0095F215 /* CoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0702BEC88D600E724F6 /* CoinService.swift */; };
-		75C745572BECAEBD0095F215 /* CoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1142E0702BEC88D600E724F6 /* CoinService.swift */; };
+		11D490272BECE8E90001FD84 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 11D490262BECE8E90001FD84 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D490272BECE8E90001FD84 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +216,9 @@
 			dependencies = (
 			);
 			name = CryptoTracker;
+			packageProductDependencies = (
+				11D490262BECE8E90001FD84 /* SwiftUICharts */,
+			);
 			productName = CryptoTracker;
 			productReference = 1132AA3F2BEB5CBE000CD981 /* CryptoTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -310,6 +291,9 @@
 				Base,
 			);
 			mainGroup = 1132AA362BEB5CBE000CD981;
+			packageReferences = (
+				11D490252BECE8E90001FD84 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 1132AA402BEB5CBE000CD981 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -371,18 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75C7454C2BECAE790095F215 /* CoinRowView.swift in Sources */,
-				75C7454A2BECAE750095F215 /* SingleCoinView.swift in Sources */,
-				75C745462BECAE710095F215 /* SettingsView.swift in Sources */,
-				75C745402BECAE680095F215 /* DefaultView.swift in Sources */,
-				75C7453E2BECAE430095F215 /* HomeView.swift in Sources */,
-				75C7454E2BECAE7C0095F215 /* SearchBar.swift in Sources */,
-				75C745442BECAE6E0095F215 /* FavouritesView.swift in Sources */,
-				75C745542BECAEB90095F215 /* CryptoTrackerApp.swift in Sources */,
-				75C745482BECAE730095F215 /* ProfileView.swift in Sources */,
-				75C745522BECAEB60095F215 /* Coin.swift in Sources */,
-				75C745562BECAEBD0095F215 /* CoinService.swift in Sources */,
-				75C745422BECAE6B0095F215 /* CoinsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,18 +362,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75C7454D2BECAE7A0095F215 /* CoinRowView.swift in Sources */,
-				75C7454B2BECAE760095F215 /* SingleCoinView.swift in Sources */,
-				75C745472BECAE710095F215 /* SettingsView.swift in Sources */,
-				75C745412BECAE690095F215 /* DefaultView.swift in Sources */,
-				75C7453F2BECAE430095F215 /* HomeView.swift in Sources */,
-				75C7454F2BECAE7D0095F215 /* SearchBar.swift in Sources */,
-				75C745452BECAE6E0095F215 /* FavouritesView.swift in Sources */,
-				75C745552BECAEB90095F215 /* CryptoTrackerApp.swift in Sources */,
-				75C745492BECAE730095F215 /* ProfileView.swift in Sources */,
-				75C745532BECAEB60095F215 /* Coin.swift in Sources */,
-				75C745572BECAEBD0095F215 /* CoinService.swift in Sources */,
-				75C745432BECAE6C0095F215 /* CoinsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 539CC5758M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoTracker/Info.plist;
@@ -578,7 +538,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CryptoTracker/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 539CC5758M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoTracker/Info.plist;
@@ -716,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11D490252BECE8E90001FD84 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11D490262BECE8E90001FD84 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11D490252BECE8E90001FD84 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1132AA372BEB5CBE000CD981 /* Project object */;
 }

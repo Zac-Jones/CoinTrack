@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Coin: Codable {
+struct Coin: Codable, Identifiable {
     let id: String
     let symbol: String
     let name: String
@@ -32,10 +32,7 @@ struct Coin: Codable {
     let atlDate: Date?
     let lastUpdated: Date?
     let sparklineIn7d: SparklineIn7d?
-
-    struct SparklineIn7d: Codable {
-        let price: [Double]
-    }
+    var isFavourited: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, image
@@ -51,6 +48,20 @@ struct Coin: Codable {
         case circulatingSupply = "circulating_supply"
         case totalSupply = "total_supply"
         case maxSupply = "max_supply"
-        case ath, athChangePercentage, athDate, atl, atlChangePercentage, atlDate, lastUpdated, sparklineIn7d
+        case sparklineIn7d = "sparkline_in_7d"
+        case ath, athChangePercentage, athDate, atl, atlChangePercentage, atlDate, lastUpdated
+    }
+    
+    struct SparklineIn7d: Codable {
+        let price: [Double]
+        
+        enum CodingKeys: String, CodingKey {
+            case price
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            price = try container.decode([Double].self, forKey: .price)
+        }
     }
 }

@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CoinsView: View {
+    @State private var favouriteCoins: [Coin] = []
     @State private var cryptoData: [Coin] = []
-    let coins: [Coin]
+    @State private var coins: [Coin] = []
     @State private var searchText = ""
     @State private var sortOption: SortOption = .marketCap
 
@@ -39,8 +40,6 @@ struct CoinsView: View {
             return filteredCoins.sorted(by: { $0.currentPrice > $1.currentPrice })
         }
     }
-    
-    
 
     var body: some View {
         NavigationView {
@@ -58,7 +57,7 @@ struct CoinsView: View {
                 List {
                     ForEach(sortedCoins.indices, id: \.self) { index in
                         let coin = sortedCoins[index]
-                        NavigationLink(destination: SingleCoinView(coin: coin)) {
+                        NavigationLink(destination: SingleCoinView(coin: coin, coins: $coins)) {
                             CoinRowView(coin: coin, index: index + 1)
                         }
                     }
@@ -70,6 +69,7 @@ struct CoinsView: View {
                 }
             }
             .onAppear {
+                loadFavouriteCoins()
                 Task {
                     do {
                         self.cryptoData = try await CoinService.shared.fetchCoinDataAsync()
@@ -89,6 +89,12 @@ struct CoinsView: View {
             print("Error fetching data: \(error)")
         }
     }
+
+    private func loadFavouriteCoins() {
+        favouriteCoins = coins.filter { UserDefaults.standard.bool(forKey: "fav_\($0.id)") }
+    }
+
+
 
     enum SortOption {
         case name

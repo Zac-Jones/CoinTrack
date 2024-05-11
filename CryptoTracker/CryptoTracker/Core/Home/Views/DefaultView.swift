@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct DefaultView: View {
+    @Binding var coins: [Coin]
+    @Binding var favouriteCoins: [Coin]
     @State private var currentPage = "Dashboard"
-    @State private var coins: [Coin] = []
-    
+
     var body: some View {
-        
         NavigationView {
-    
             TabView(selection: $currentPage) {
                 HomeView(coins: coins)
                     .tabItem {
@@ -22,19 +21,8 @@ struct DefaultView: View {
                         Text("Dash")
                     }
                     .tag("Dashboard")
-                    .onAppear {
-                        Task {
-                            do {
-                                self.coins = try await CoinService.shared.fetchCoinDataAsync()
-                                
-                            } catch {
-                                print("Error fetching data: \(error)")
-                            }
-                        }
-                    }
-                    
                 
-                FavouritesView()
+                FavouritesView(coins: $favouriteCoins)
                     .tabItem {
                         Image(systemName: "star")
                         Text("Favourites")
@@ -47,15 +35,6 @@ struct DefaultView: View {
                         Text("Coins")
                     }
                     .tag("Coins")
-                    .onAppear {
-                        Task {
-                            do {
-                                self.coins = try await CoinService.shared.fetchCoinDataAsync()
-                            } catch {
-                                print("Error fetching data: \(error)")
-                            }
-                        }
-                    }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
@@ -66,13 +45,8 @@ struct DefaultView: View {
                     NavigationLink(destination: ProfileView()) {
                         Image(systemName: "person")
                     }
-                    
                 }
             )
         }
     }
-}
-
-#Preview {
-    DefaultView()
 }

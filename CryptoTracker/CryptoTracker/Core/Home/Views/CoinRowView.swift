@@ -10,6 +10,7 @@ import SwiftUI
 struct CoinRowView: View {
     let coin: Coin
     let index: Int
+    @State private var isFavourited = false
 
     var body: some View {
         HStack {
@@ -33,6 +34,10 @@ struct CoinRowView: View {
                         .font(.headline)
                     Text(coin.name)
                         .font(.headline)
+                    if isFavourited {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                    }
                     Spacer()
                     Text("$\(String(format: "%.2f", coin.currentPrice))")
                         .font(.headline)
@@ -40,6 +45,9 @@ struct CoinRowView: View {
                 Text(coin.symbol.uppercased())
                     .font(.subheadline)
             }
+        }
+        .onAppear {
+            isFavourited = UserDefaults.standard.bool(forKey: "fav_\(coin.id)")
         }
     }
 }
