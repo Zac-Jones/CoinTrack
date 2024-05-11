@@ -50,4 +50,5 @@ struct CoinRowView: View {
             isFavourited = UserDefaults.standard.bool(forKey: "fav_\(coin.id)")
         }
     }
+    
 }

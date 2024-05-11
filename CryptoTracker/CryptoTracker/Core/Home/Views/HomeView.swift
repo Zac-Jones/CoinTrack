@@ -92,7 +92,6 @@ struct HomeView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .background(Color.white)
         }
         .onAppear {
             Task {

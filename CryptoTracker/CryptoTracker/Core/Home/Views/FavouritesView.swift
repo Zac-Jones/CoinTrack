@@ -26,7 +26,7 @@ struct FavouritesView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            .background(Color.white)
+   
             .onAppear {
                 loadFavouriteCoins()
             }

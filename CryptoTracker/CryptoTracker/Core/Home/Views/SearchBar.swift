@@ -9,13 +9,16 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var searchText: String
-
+    @Environment(\.colorScheme) private var colorScheme
     var body: some View {
-        HStack {
-            TextField("Search", text: $searchText)
-                .padding(.horizontal)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            HStack {
+                TextField("Search", text: $searchText)
+                    .padding(.horizontal)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            .padding(.vertical)
+           
         }
-        .padding(.vertical)
-    }
+       
+    
 }

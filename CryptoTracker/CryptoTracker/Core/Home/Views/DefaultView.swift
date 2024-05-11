@@ -37,6 +37,7 @@ struct DefaultView: View {
                     .tag("Coins")
             }
             .navigationBarTitleDisplayMode(.inline)
+
             .navigationBarItems(
                 leading: Text(currentPage)
                     .fontWeight(.bold)
