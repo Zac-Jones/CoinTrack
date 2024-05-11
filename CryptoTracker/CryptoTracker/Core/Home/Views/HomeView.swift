@@ -132,8 +132,10 @@ struct CoinItemView: View {
                 }
             }
             
+            Text(coin.name)
+            
             HStack(spacing: 2){
-                Text(coin.name)
+                Text(coin.symbol.uppercased())
                     .font(.caption)
                     .fontWeight(.bold)
                 Text(String(format: " $%.2f", coin.currentPrice))

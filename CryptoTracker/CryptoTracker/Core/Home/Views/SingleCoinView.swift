@@ -26,31 +26,94 @@ struct SingleCoinView: View {
             Text(mutableCoin.name)
                 .font(.title)
                 .bold()
-            Text("Symbol: \(mutableCoin.symbol)")
-            Text("Price: $\(String(format: "%.2f", mutableCoin.currentPrice))")
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading: backButton, trailing: favouriteButton)
             
+            
              
-            let priceHistory = mutableCoin.sparklineIn7d?.price
+            let priceHistory = mutableCoin.sparklineIn7d?.price.map { $0 * 1.51 } // multiply by 1.51 to convert to AUD from USD
+            
             LineChartView(data: priceHistory ?? [],
-                          title: "Price Trend",
-                          legend: "Price in USD",
+                          title: "Price Trend (7 Days)",
+                          legend: "Price in AUD",
                           style: Styles.lineChartStyleOne,
                           form: ChartForm.extraLarge, //size of form
-                          rateValue: Int(mutableCoin.marketCapChangePercentage24h)//percentage value to state if its going up or down
+                          rateValue: Int(mutableCoin.priceChangePercentage24h)//percentage value to state if its going up or down
                           
             )
             .padding(10)
-            
-            
             .onAppear {
                 mutableCoin.isFavourited = UserDefaults.standard.bool(forKey: "fav_\(mutableCoin.id)")
                 
             }
             
+            HStack {
+                Spacer()
+                Text("\(mutableCoin.symbol.uppercased()):")
+                Spacer()
+                Text("$\(String(format: "%.2f", mutableCoin.currentPrice))")
+                    .bold()
+                Spacer()
+                Text("\(String(format: "%.2f", mutableCoin.priceChangePercentage24h))%")
+                    .foregroundColor(mutableCoin.priceChangePercentage24h < 0 ? .red : .green)
+                Spacer()
+            }
+            
+            HStack {
+                VStack {
+                    Text("High (24HR)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text("$\(String(format: "%.2f", mutableCoin.high24h))")
+                        .foregroundColor(.green)
+                }
+                .frame(width: 180, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(.systemGray4), lineWidth: 2)
+                )
+                VStack {
+                    Text("Low (24HR)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text("$\(String(format: "%.2f", mutableCoin.low24h))")
+                        .foregroundColor(.red)
+                }
+                .frame(width: 180, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(.systemGray4), lineWidth: 2)
+                )
+            }
+            .padding(10)
+            
+            HStack {
+                VStack {
+                    Text("Volume (24HR)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text("$\(String(format: "%.2f", mutableCoin.marketCapChange24h))")
+                }
+                .frame(width: 180, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(.systemGray4), lineWidth: 2)
+                )
+                VStack {
+                    Text("Market Cap")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text("$\(String(format: "%.2f", mutableCoin.marketCap))")
+                }
+                .frame(width: 180, height: 60)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(.systemGray4), lineWidth: 2)
+                )
+            }
+            .padding(10)
+            
             Spacer()
-           // Spacer()
         }
     }
     
