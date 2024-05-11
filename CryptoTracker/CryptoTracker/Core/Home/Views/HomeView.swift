@@ -29,6 +29,8 @@ struct HomeView: View {
                 .bold()
                 .font(.title2)
                 .padding(.leading, 16)
+                .padding(.top, 10)
+     
             
             ScrollView(.horizontal) {
                 HStack(spacing: 16) {
@@ -49,8 +51,7 @@ struct HomeView: View {
                 .font(.title2)
                 .padding(.leading, 16)
             List {
-                ForEach(favouriteCoins.indices, id: \.self) { index in
-                    if (index < 5) {
+                ForEach(favouriteCoins.prefix(5).indices, id: \.self) { index in //loop the the first 5 indexes in favouriteCoins array
                         let coin = favouriteCoins[index]
                         NavigationLink(destination: SingleCoinView(coin: coin, coins: $coins_)) {
                             HStack {
@@ -86,7 +87,7 @@ struct HomeView: View {
                                         .font(.title2)
                                         .foregroundColor(coin.priceChangePercentage24h < 0 ? .red : .green)
                                 }
-                            }
+                            
                         }
                     }
                 }

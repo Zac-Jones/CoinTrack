@@ -11,6 +11,7 @@ struct DefaultView: View {
     @Binding var coins: [Coin]
     @Binding var favouriteCoins: [Coin]
     @State private var currentPage = "Dashboard"
+   
     
     var body: some View {
         NavigationView {
@@ -37,7 +38,7 @@ struct DefaultView: View {
                     .tag("Coins")
             }
             .navigationBarTitleDisplayMode(.inline)
-
+            .padding(.top,10)
             .navigationBarItems(
                 leading: Text(currentPage)
                     .fontWeight(.bold)
