@@ -11,7 +11,7 @@ struct DefaultView: View {
     @Binding var coins: [Coin]
     @Binding var favouriteCoins: [Coin]
     @State private var currentPage = "Dashboard"
-
+    
     var body: some View {
         NavigationView {
             TabView(selection: $currentPage) {

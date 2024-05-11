@@ -11,7 +11,7 @@ struct CoinService {
     static let shared = CoinService()
     
     func fetchCoinData(completion: @escaping (Result<[Coin], Error>) -> Void) {
-        let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=100&page=1&sparkline=false")!
+        let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud&order=market_cap_desc&per_page=100&page=1&sparkline=true")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.timeoutInterval = 10

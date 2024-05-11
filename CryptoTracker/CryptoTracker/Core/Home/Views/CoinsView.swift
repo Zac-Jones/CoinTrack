@@ -13,11 +13,11 @@ struct CoinsView: View {
     @State private var coins: [Coin] = []
     @State private var searchText = ""
     @State private var sortOption: SortOption = .marketCap
-
+    
     init(coins: [Coin]) {
         self.coins = coins
     }
-
+    
     var filteredCoins: [Coin] {
         if searchText.isEmpty {
             return cryptoData
@@ -29,7 +29,7 @@ struct CoinsView: View {
             }
         }
     }
-
+    
     var sortedCoins: [Coin] {
         switch sortOption {
         case .name:
@@ -40,12 +40,12 @@ struct CoinsView: View {
             return filteredCoins.sorted(by: { $0.currentPrice > $1.currentPrice })
         }
     }
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 SearchBar(searchText: $searchText)
-
+                
                 Picker("Sort By", selection: $sortOption) {
                     Text("Alphabetical").tag(SortOption.name)
                     Text("Market Cap").tag(SortOption.marketCap)
@@ -53,7 +53,7 @@ struct CoinsView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
-
+                
                 List {
                     ForEach(sortedCoins.indices, id: \.self) { index in
                         let coin = sortedCoins[index]
@@ -80,7 +80,7 @@ struct CoinsView: View {
             }
         }
     }
-
+    
     @MainActor
     private func refreshCoins() async {
         do {
@@ -89,13 +89,13 @@ struct CoinsView: View {
             print("Error fetching data: \(error)")
         }
     }
-
+    
     private func loadFavouriteCoins() {
         favouriteCoins = coins.filter { UserDefaults.standard.bool(forKey: "fav_\($0.id)") }
     }
-
-
-
+    
+    
+    
     enum SortOption {
         case name
         case marketCap

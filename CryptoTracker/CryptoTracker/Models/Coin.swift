@@ -33,6 +33,7 @@ struct Coin: Codable, Identifiable {
     let lastUpdated: Date?
     let sparklineIn7d: SparklineIn7d?
     var isFavourited: Bool = false
+    
 
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, image

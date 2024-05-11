@@ -114,7 +114,7 @@ struct HomeView: View {
 
 struct CoinItemView: View {
     let coin: Coin
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             AsyncImage(url: coin.image) { phase in
@@ -131,7 +131,7 @@ struct CoinItemView: View {
                         .padding(.trailing, 8)
                 }
             }
-
+            
             HStack(spacing: 2){
                 Text(coin.name)
                     .font(.caption)
@@ -140,7 +140,7 @@ struct CoinItemView: View {
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-
+            
             Text("\(String(format: "%.2f", coin.priceChangePercentage24h))%")
                 .font(.title2)
                 .foregroundColor(coin.priceChangePercentage24h < 0 ? .red : .green)

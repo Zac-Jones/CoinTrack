@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.presentationMode) var mode
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -26,7 +26,7 @@ struct ProfileView: View {
         }
         .navigationBarBackButtonHidden(mode.wrappedValue.isPresented)
     }
-
+    
     private var backButton: some View {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
