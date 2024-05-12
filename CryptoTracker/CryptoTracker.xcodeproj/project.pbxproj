@@ -136,10 +136,8 @@
 			children = (
 				1142E0742BEC8B1B00E724F6 /* Info.plist */,
 				1142E0622BEC757F00E724F6 /* App */,
-				1142E05E2BEC753300E724F6 /* Extensions */,
 				1142E05D2BEC753100E724F6 /* Models */,
 				1142E05C2BEC752800E724F6 /* Core */,
-				1142E05B2BEC751B00E724F6 /* Utils */,
 				1132AA482BEB5CC0000CD981 /* Preview Content */,
 			);
 			path = CryptoTracker;
@@ -151,13 +149,6 @@
 				1132AA492BEB5CC0000CD981 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1142E05B2BEC751B00E724F6 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		1142E05C2BEC752800E724F6 /* Core */ = {
@@ -174,13 +165,6 @@
 				1142E0722BEC88EB00E724F6 /* Coin.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		1142E05E2BEC753300E724F6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1142E05F2BEC755B00E724F6 /* Home */ = {
