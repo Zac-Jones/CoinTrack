@@ -9,6 +9,20 @@ import SwiftUI
 
 @main
 struct CryptoTrackerApp: App {
+    @AppStorage("systemThemeVal") private var systemTheme: Int = SchemeType.allCases.first!.rawValue
+    
+    private var selectedScheme: ColorScheme? {
+        guard let theme = SchemeType(rawValue: systemTheme) else { return nil}
+        switch theme {
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        default:
+            return nil
+        }
+    }
+    
     @State private var coins: [Coin] = []
     @State private var favouriteCoins: [Coin] = []
 
@@ -19,6 +33,7 @@ struct CryptoTrackerApp: App {
                     loadInitialData()
                 }
                 .accentColor(.red)
+                .preferredColorScheme(selectedScheme)
         }
     }
 

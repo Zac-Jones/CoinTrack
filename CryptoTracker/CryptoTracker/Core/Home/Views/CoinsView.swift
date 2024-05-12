@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CoinsView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var favouriteCoins: [Coin] = []
     @State private var cryptoData: [Coin] = []
     @State private var coins: [Coin] = []
@@ -63,7 +64,7 @@ struct CoinsView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .background(Color.white)
+                .background(colorScheme == .dark ? Color.black : Color.white) // Set background color based on color scheme
                 .refreshable {
                     await refreshCoins()
                 }
@@ -93,8 +94,6 @@ struct CoinsView: View {
     private func loadFavouriteCoins() {
         favouriteCoins = coins.filter { UserDefaults.standard.bool(forKey: "fav_\($0.id)") }
     }
-    
-    
     
     enum SortOption {
         case name

@@ -6,10 +6,6 @@
 //
 
 import SwiftUI
-enum Theme {
-    static let primary = Color("Primary")
-}
-
 
 enum SchemeType: Int, Identifiable, CaseIterable {
     var id: Self {self}
